@@ -1,0 +1,2308 @@
+package javaproj;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.border.BevelBorder;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import java.awt.ComponentOrientation;
+import java.awt.Component;
+import java.awt.Font;
+import javax.swing.JLabel;
+import java.awt.Dimension;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.BoxLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JSplitPane;
+import javax.swing.SpringLayout;
+import javax.swing.SwingUtilities;
+
+
+
+public class TABLEprototype {
+
+	private JFrame frame;
+	private JTabbedPane tabbedPane;
+	private JPanel panel;
+	private JScrollPane scrollPane;
+	private JTabbedPane tabbedPane_1;
+	private JScrollPane midterm_;
+	private JTable midterm;
+	private JScrollPane midAtt_;
+	private JTable midAtt;
+	private JScrollPane finAtt_;
+	private JTable finAtt;
+	private JScrollPane midAct_;
+	private JTable midAct;
+	private JScrollPane finals_;
+	private JTable finals;
+	private JScrollPane finAct_;
+	private JTable finAct;
+	private JScrollPane semestral_;
+	private JTable semestral;
+	private JScrollPane midtermQuiz_;
+	private JTable midtermQuiz;
+	private JScrollPane finalsQuiz_;
+	private JTable finalsQuiz;
+
+	/**
+	 * Launch the application.
+	 */
+	
+	
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TABLEprototype window = new TABLEprototype();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+
+	/**
+	 * Create the application.
+	 */
+	public TABLEprototype() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	class CustomCellRenderer extends DefaultTableCellRenderer {
+	    private int targetRow;
+	    private int targetColumn;
+	    private Color cellColor;
+
+	    public CustomCellRenderer(int row, int column, Color color) {
+	        this.targetRow = row;
+	        this.targetColumn = column;
+	        this.cellColor = color;
+	    }
+
+	    @Override
+	    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+	        Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+	        if (row == targetRow && column == targetColumn) {
+	            cellComponent.setBackground(cellColor);
+	        } else {
+	            cellComponent.setBackground(Color.WHITE); // Or whatever default color you want
+	        }
+	        return cellComponent;
+	    }
+	}
+
+	
+	
+	private void initialize() {
+		
+		frame = new JFrame();
+		frame.setBounds(100, 100, 1231, 699);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
+		
+		tabbedPane_1 = new JTabbedPane(JTabbedPane.BOTTOM);
+		tabbedPane_1.setBackground(new Color(255, 255, 4));
+		tabbedPane_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		tabbedPane_1.setForeground(new Color(0, 128, 64));
+		frame.getContentPane().add(tabbedPane_1);
+		
+		midterm_ = new JScrollPane();
+		tabbedPane_1.addTab("Midterm", null, midterm_, null);
+		
+		midterm = new JTable();
+		midterm.setGridColor(new Color(64, 64, 0));
+		midterm.getTableHeader().setReorderingAllowed(false);
+		midterm.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"", "", null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"No.", "Name", "Attendance", "Quiz", "Recitation", "Class Participation", "LabGrA", "Midterms", "ExamGrA", "Major Exam", "Total Grade", "Pass or Fail"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				true, true, false, false, true, false, false, true, false, false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+			
+			@Override
+			public void setValueAt(Object value, int row, int col) {
+				super.setValueAt(value, row, col);
+				if (col == 4 && row > 0) {
+					try{
+						updatemidcpGrA (row); // Format to two decimal points
+					} catch (NumberFormatException e) {
+				}}
+				
+				else if (col == 7 && row > 0) { // Q2 column
+					try {
+						double grade = Double.parseDouble(value.toString());
+						if (grade < 0 || grade > 30) { // Check for negative or out-of-range input
+				            throw new NumberFormatException();
+				        }
+				        double examGrA = calculateexamGrA(grade);
+				        super.setValueAt(formatToTwoDecimal(examGrA), row, 8); // Format to two decimal points
+				        updatemidMajorExam(row);
+				        updatemidTotalGrade(row);
+					} catch (NumberFormatException e) {
+						super.setValueAt("Invalid", row, 8);
+				}}
+				
+				else if (col == 8 && row > 0) {
+					updatemidTotalGrade(row);
+				}
+				
+				else if (col == 10) {
+					updatemidPass_Fail(row);
+				}
+				
+			}
+
+			
+		});
+		midterm.getColumnModel().getColumn(0).setResizable(false);
+		midterm.getColumnModel().getColumn(0).setPreferredWidth(39);
+		midterm.getColumnModel().getColumn(1).setResizable(false);
+		midterm.getColumnModel().getColumn(1).setPreferredWidth(155);
+		midterm.getColumnModel().getColumn(2).setResizable(false);
+		midterm.getColumnModel().getColumn(3).setResizable(false);
+		midterm.getColumnModel().getColumn(5).setResizable(false);
+		midterm.getColumnModel().getColumn(4).setResizable(false);
+		midterm.getColumnModel().getColumn(5).setPreferredWidth(122);
+		midterm.getColumnModel().getColumn(6).setResizable(false);
+		midterm.getColumnModel().getColumn(6).setPreferredWidth(86);
+		midterm.getColumnModel().getColumn(7).setResizable(false);
+		midterm.getColumnModel().getColumn(8).setResizable(false);
+		midterm.getColumnModel().getColumn(9).setResizable(false);
+		midterm.getColumnModel().getColumn(9).setPreferredWidth(101);
+		midterm.getColumnModel().getColumn(10).setResizable(false);
+		midterm.getColumnModel().getColumn(11).setResizable(false);
+		midterm.getColumnModel().getColumn(11).setPreferredWidth(87);
+		// Create a new instance of the custom cell renderer
+		CustomCellRenderer cellRenderer = new CustomCellRenderer(0, 4, Color.GREEN); // Change Color.RED to whatever color you want
+		CustomCellRenderer cellRenderer2 = new CustomCellRenderer(0, 1, Color.YELLOW);
+		CustomCellRenderer cellRenderer3 = new CustomCellRenderer(0, 2, Color.YELLOW);
+		CustomCellRenderer cellRenderer4 = new CustomCellRenderer(0, 3, Color.YELLOW);
+		CustomCellRenderer cellRenderer5 = new CustomCellRenderer(0, 5, Color.YELLOW);
+		CustomCellRenderer cellRenderer6 = new CustomCellRenderer(0, 6, Color.YELLOW);
+		CustomCellRenderer cellRenderer7 = new CustomCellRenderer(0, 7, Color.YELLOW);
+		CustomCellRenderer cellRenderer8 = new CustomCellRenderer(0, 8, Color.YELLOW);
+		CustomCellRenderer cellRenderer9 = new CustomCellRenderer(0, 9, Color.YELLOW);
+		CustomCellRenderer cellRenderer10 = new CustomCellRenderer(0, 10, Color.YELLOW);
+		CustomCellRenderer cellRenderer11 = new CustomCellRenderer(0, 11, Color.YELLOW);
+		CustomCellRenderer cellRenderer12 = new CustomCellRenderer(0, 0, Color.YELLOW);
+		midterm.getColumnModel().getColumn(4).setCellRenderer(cellRenderer);
+		midterm.getColumnModel().getColumn(1).setCellRenderer(cellRenderer2);
+		midterm.getColumnModel().getColumn(2).setCellRenderer(cellRenderer3);
+		midterm.getColumnModel().getColumn(3).setCellRenderer(cellRenderer4);
+		midterm.getColumnModel().getColumn(5).setCellRenderer(cellRenderer5);
+		midterm.getColumnModel().getColumn(6).setCellRenderer(cellRenderer6);
+		midterm.getColumnModel().getColumn(7).setCellRenderer(cellRenderer7);
+		midterm.getColumnModel().getColumn(8).setCellRenderer(cellRenderer8);
+		midterm.getColumnModel().getColumn(9).setCellRenderer(cellRenderer9);
+		midterm.getColumnModel().getColumn(10).setCellRenderer(cellRenderer10);
+		midterm.getColumnModel().getColumn(11).setCellRenderer(cellRenderer11);
+		midterm.getColumnModel().getColumn(0).setCellRenderer(cellRenderer12);
+		
+		midterm.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
+		midterm_.setViewportView(midterm);
+		
+		finals_ = new JScrollPane();
+		tabbedPane_1.addTab("Finals", null, finals_, null);
+		
+		finals = new JTable();
+		finals.getTableHeader().setReorderingAllowed(false);
+		finals.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"No.", "Name", "Attendance", "Quiz", "Recitation", "Class Participation", "LabGrA", "Finals", "ExamGrA", "Major Exam", "Total Grade", "Pass or Fail"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, true, false, true, true, false, false, true, false, false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+			
+
+			@Override
+			public void setValueAt(Object value, int row, int col) {
+				super.setValueAt(value, row, col);
+				if (col == 4 && row > 0) {
+					try{
+						updatefincpGrA (row); // Format to two decimal points
+					} catch (NumberFormatException e) {
+				}}
+				
+				else if (col == 7 && row > 0) { // Q2 column
+					try {
+						double grade = Double.parseDouble(value.toString());
+						if (grade < 0 || grade > 30) { // Check for negative or out-of-range input
+				            throw new NumberFormatException();
+				        }
+				        double examGrA = calculateexamGrA(grade);
+				        super.setValueAt(formatToTwoDecimal(examGrA), row, 8); // Format to two decimal points
+				        updatefinMajorExam(row);
+				        updatefinTotalGrade(row);
+					} catch (NumberFormatException e) {
+						super.setValueAt("Invalid", row, 8);
+				}}
+				
+				else if (col == 8 && row > 0) {
+					updatefinTotalGrade(row);
+				}
+				
+				else if (col == 10) {
+					updatefinPass_Fail(row);
+				}
+				
+			}
+			
+		});
+		finals.getColumnModel().getColumn(0).setResizable(false);
+		finals.getColumnModel().getColumn(0).setPreferredWidth(33);
+		finals.getColumnModel().getColumn(1).setResizable(false);
+		finals.getColumnModel().getColumn(1).setPreferredWidth(195);
+		finals.getColumnModel().getColumn(2).setResizable(false);
+		finals.getColumnModel().getColumn(3).setResizable(false);
+		finals.getColumnModel().getColumn(4).setResizable(false);
+		finals.getColumnModel().getColumn(5).setResizable(false);
+		finals.getColumnModel().getColumn(5).setPreferredWidth(112);
+		finals.getColumnModel().getColumn(6).setResizable(false);
+		finals.getColumnModel().getColumn(7).setResizable(false);
+		finals.getColumnModel().getColumn(8).setResizable(false);
+		finals.getColumnModel().getColumn(9).setResizable(false);
+		finals.getColumnModel().getColumn(10).setResizable(false);
+		finals.getColumnModel().getColumn(11).setResizable(false);
+		finals.getColumnModel().getColumn(11).setPreferredWidth(86);
+		CustomCellRenderer cellRenderer_ = new CustomCellRenderer(0, 4, Color.GREEN); // Change Color.RED to whatever color you want
+		CustomCellRenderer cellRenderer2_ = new CustomCellRenderer(0, 1, Color.YELLOW);
+		CustomCellRenderer cellRenderer3_ = new CustomCellRenderer(0, 2, Color.YELLOW);
+		CustomCellRenderer cellRenderer4_ = new CustomCellRenderer(0, 3, Color.YELLOW);
+		CustomCellRenderer cellRenderer5_ = new CustomCellRenderer(0, 5, Color.YELLOW);
+		CustomCellRenderer cellRenderer6_ = new CustomCellRenderer(0, 6, Color.YELLOW);
+		CustomCellRenderer cellRenderer7_ = new CustomCellRenderer(0, 7, Color.YELLOW);
+		CustomCellRenderer cellRenderer8_ = new CustomCellRenderer(0, 8, Color.YELLOW);
+		CustomCellRenderer cellRenderer9_ = new CustomCellRenderer(0, 9, Color.YELLOW);
+		CustomCellRenderer cellRenderer10_ = new CustomCellRenderer(0, 10, Color.YELLOW);
+		CustomCellRenderer cellRenderer11_ = new CustomCellRenderer(0, 11, Color.YELLOW);
+		CustomCellRenderer cellRenderer12_ = new CustomCellRenderer(0, 0, Color.YELLOW);
+		finals.getColumnModel().getColumn(4).setCellRenderer(cellRenderer_);
+		finals.getColumnModel().getColumn(1).setCellRenderer(cellRenderer2_);
+		finals.getColumnModel().getColumn(2).setCellRenderer(cellRenderer3_);
+		finals.getColumnModel().getColumn(3).setCellRenderer(cellRenderer4_);
+		finals.getColumnModel().getColumn(5).setCellRenderer(cellRenderer5_);
+		finals.getColumnModel().getColumn(6).setCellRenderer(cellRenderer6_);
+		finals.getColumnModel().getColumn(7).setCellRenderer(cellRenderer7_);
+		finals.getColumnModel().getColumn(8).setCellRenderer(cellRenderer8_);
+		finals.getColumnModel().getColumn(9).setCellRenderer(cellRenderer9_);
+		finals.getColumnModel().getColumn(10).setCellRenderer(cellRenderer10_);
+		finals.getColumnModel().getColumn(11).setCellRenderer(cellRenderer11_);
+		finals.getColumnModel().getColumn(0).setCellRenderer(cellRenderer12_);
+		finals_.setViewportView(finals);
+		
+		semestral_ = new JScrollPane();
+		tabbedPane_1.addTab("Semestral", null, semestral_, null);
+		
+		semestral = new JTable();
+		semestral.getTableHeader().setReorderingAllowed(false);
+		semestral.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"Name", "Midterms", "Finals", "Semestral Grade", "Remarks"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				true, true, true, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+			
+			@Override
+			public void setValueAt(Object value, int row, int col) {
+				super.setValueAt(value, row, col);
+				if (col == 1 || col == 2) { // Check if it's the quiz column and not the first row
+			        try {
+			            updatesemGrade(row);
+			        } catch (NumberFormatException e) {
+			        	super.setValueAt("Invalid", row, 3);
+			        }
+			    }
+				
+				else if (col == 3) { // Check if it's the quiz column and not the first row
+			        try {
+			            updatesemRemarks(row);
+			        } catch (NumberFormatException e) {
+			        	super.setValueAt("Invalid", row, 4);
+			        }
+			    }
+			}
+			
+		});
+		semestral.getColumnModel().getColumn(0).setResizable(false);
+		semestral.getColumnModel().getColumn(1).setResizable(false);
+		semestral.getColumnModel().getColumn(2).setResizable(false);
+		semestral.getColumnModel().getColumn(3).setResizable(false);
+		semestral.getColumnModel().getColumn(3).setPreferredWidth(104);
+		semestral.getColumnModel().getColumn(4).setResizable(false);
+		CustomCellRenderer _cellRenderer = new CustomCellRenderer(0, 0, Color.YELLOW); // Change Color.RED to whatever color you want
+		CustomCellRenderer _cellRenderer2 = new CustomCellRenderer(0, 1, Color.YELLOW);
+		CustomCellRenderer _cellRenderer3 = new CustomCellRenderer(0, 2, Color.YELLOW);
+		CustomCellRenderer _cellRenderer4 = new CustomCellRenderer(0, 3, Color.YELLOW);
+		CustomCellRenderer _cellRenderer5 = new CustomCellRenderer(0, 4, Color.YELLOW);
+		
+		semestral.getColumnModel().getColumn(0).setCellRenderer(_cellRenderer);
+		semestral.getColumnModel().getColumn(1).setCellRenderer(_cellRenderer2);
+		semestral.getColumnModel().getColumn(2).setCellRenderer(_cellRenderer3);
+		semestral.getColumnModel().getColumn(3).setCellRenderer(_cellRenderer4);
+		semestral.getColumnModel().getColumn(4).setCellRenderer(_cellRenderer5);
+		
+		semestral_.setViewportView(semestral);
+		
+		midAtt_ = new JScrollPane();
+		tabbedPane_1.addTab("Midterm Attendance", null, midAtt_, null);
+		
+		midAtt = new JTable();
+		midAtt.setFont(new Font("Tahoma", Font.BOLD, 10));
+		midAtt.getTableHeader().setReorderingAllowed(false);
+		midAtt.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"Name", "Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Attendance"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, true, true, true, true, true, true, true, false
+			};
+			
+			boolean[] rowEditables = new boolean[] {
+					false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, 
+				};
+			
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column] && rowEditables[row];
+			}
+			
+			@Override
+			public void setValueAt(Object value, int row, int col) {
+			    super.setValueAt(value, row, col);
+			    if (col == 1 || col == 2 || col == 3 || col == 4 || col == 5 || col == 6 || col == 7) { // Day 1 or Day 2 columns
+			        try {
+			            double attendance = Double.parseDouble(value.toString());
+			            if (attendance < 0 || attendance > 1) { // Check if 1 or 0
+			                throw new NumberFormatException();
+			            }
+			            double attendancectr = attendance;
+			            super.setValueAt(attendancectr, row, col); 
+			            updatemidAttendance(row); // Call updateAttendance after setting the value
+			        } catch (NumberFormatException e) {
+			            super.setValueAt("Invalid", row, col);
+			        }
+			    }
+			    
+			    else if (col == 8) {
+			    	updatemidAttGrA(row);
+				}
+			}
+			
+		});
+		midAtt.getColumnModel().getColumn(0).setResizable(false);
+		midAtt.getColumnModel().getColumn(1).setResizable(false);
+		midAtt.getColumnModel().getColumn(2).setResizable(false);
+		midAtt.getColumnModel().getColumn(3).setResizable(false);
+		midAtt.getColumnModel().getColumn(4).setResizable(false);
+		midAtt.getColumnModel().getColumn(5).setResizable(false);
+		midAtt.getColumnModel().getColumn(6).setResizable(false);
+		midAtt.getColumnModel().getColumn(7).setResizable(false);
+		midAtt.getColumnModel().getColumn(8).setResizable(false);
+		
+		CustomCellRenderer attcellRenderer = new CustomCellRenderer(0, 0, Color.YELLOW); // Change Color.RED to whatever color you want
+		CustomCellRenderer attcellRenderer2 = new CustomCellRenderer(0, 1, Color.YELLOW);
+		CustomCellRenderer attcellRenderer3 = new CustomCellRenderer(0, 2, Color.YELLOW);
+		CustomCellRenderer attcellRenderer4 = new CustomCellRenderer(0, 3, Color.YELLOW);
+		CustomCellRenderer attcellRenderer5 = new CustomCellRenderer(0, 4, Color.YELLOW);
+		CustomCellRenderer attcellRenderer6 = new CustomCellRenderer(0, 5, Color.YELLOW);
+		CustomCellRenderer attcellRenderer7 = new CustomCellRenderer(0, 6, Color.YELLOW);
+		CustomCellRenderer attcellRenderer8 = new CustomCellRenderer(0, 7, Color.YELLOW);
+		CustomCellRenderer attcellRenderer9 = new CustomCellRenderer(0, 8, Color.YELLOW);
+		midAtt.getColumnModel().getColumn(0).setCellRenderer(attcellRenderer);
+		midAtt.getColumnModel().getColumn(1).setCellRenderer(attcellRenderer2);
+		midAtt.getColumnModel().getColumn(2).setCellRenderer(attcellRenderer3);
+		midAtt.getColumnModel().getColumn(3).setCellRenderer(attcellRenderer4);
+		midAtt.getColumnModel().getColumn(4).setCellRenderer(attcellRenderer5);
+		midAtt.getColumnModel().getColumn(5).setCellRenderer(attcellRenderer6);
+		midAtt.getColumnModel().getColumn(6).setCellRenderer(attcellRenderer7);
+		midAtt.getColumnModel().getColumn(7).setCellRenderer(attcellRenderer8);
+		midAtt.getColumnModel().getColumn(8).setCellRenderer(attcellRenderer9);
+		
+		midAtt_.setViewportView(midAtt);
+		
+		finAtt_ = new JScrollPane();
+		tabbedPane_1.addTab("Final Attendance", null, finAtt_, null);
+		
+		finAtt = new JTable();
+		finAtt.getTableHeader().setReorderingAllowed(false);
+		finAtt.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"Name", "Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Attendance"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				true, true, true, true, true, true, true, true, false
+			};
+			
+			boolean[] rowEditables = new boolean[] {
+					false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, 
+				};
+			
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column] && rowEditables[row];
+			}
+			
+			@Override
+			public void setValueAt(Object value, int row, int col) {
+			    super.setValueAt(value, row, col);
+			    if (col == 1 || col == 2 || col == 3 || col == 4 || col == 5 || col == 6 || col == 7) { // Day 1 or Day 2 columns
+			        try {
+			            double attendance = Double.parseDouble(value.toString());
+			            if (attendance < 0 || attendance > 1) { // Check if 1 or 0
+			                throw new NumberFormatException();
+			            }
+			            double attendancectr = attendance;
+			            super.setValueAt(attendancectr, row, col); 
+			            updatefinAttendance(row); // Call updateAttendance after setting the value
+			        } catch (NumberFormatException e) {
+			            super.setValueAt("Invalid", row, col);
+			        }
+			    }
+			    
+			    else if (col == 8) {
+			    	updatefinAttGrA(row);
+				}
+			}
+			
+		});
+		finAtt.getColumnModel().getColumn(0).setResizable(false);
+		finAtt.getColumnModel().getColumn(1).setResizable(false);
+		finAtt.getColumnModel().getColumn(2).setResizable(false);
+		finAtt.getColumnModel().getColumn(3).setResizable(false);
+		finAtt.getColumnModel().getColumn(4).setResizable(false);
+		finAtt.getColumnModel().getColumn(5).setResizable(false);
+		finAtt.getColumnModel().getColumn(6).setResizable(false);
+		finAtt.getColumnModel().getColumn(7).setResizable(false);
+		finAtt.getColumnModel().getColumn(8).setResizable(false);
+		CustomCellRenderer attcellRenderer_ = new CustomCellRenderer(0, 0, Color.YELLOW); // Change Color.RED to whatever color you want
+		CustomCellRenderer attcellRenderer2_ = new CustomCellRenderer(0, 1, Color.YELLOW);
+		CustomCellRenderer attcellRenderer3_ = new CustomCellRenderer(0, 2, Color.YELLOW);
+		CustomCellRenderer attcellRenderer4_ = new CustomCellRenderer(0, 3, Color.YELLOW);
+		CustomCellRenderer attcellRenderer5_ = new CustomCellRenderer(0, 4, Color.YELLOW);
+		CustomCellRenderer attcellRenderer6_ = new CustomCellRenderer(0, 5, Color.YELLOW);
+		CustomCellRenderer attcellRenderer7_ = new CustomCellRenderer(0, 6, Color.YELLOW);
+		CustomCellRenderer attcellRenderer8_ = new CustomCellRenderer(0, 7, Color.YELLOW);
+		CustomCellRenderer attcellRenderer9_ = new CustomCellRenderer(0, 8, Color.YELLOW);
+		finAtt.getColumnModel().getColumn(0).setCellRenderer(attcellRenderer_);
+		finAtt.getColumnModel().getColumn(1).setCellRenderer(attcellRenderer2_);
+		finAtt.getColumnModel().getColumn(2).setCellRenderer(attcellRenderer3_);
+		finAtt.getColumnModel().getColumn(3).setCellRenderer(attcellRenderer4_);
+		finAtt.getColumnModel().getColumn(4).setCellRenderer(attcellRenderer5_);
+		finAtt.getColumnModel().getColumn(5).setCellRenderer(attcellRenderer6_);
+		finAtt.getColumnModel().getColumn(6).setCellRenderer(attcellRenderer7_);
+		finAtt.getColumnModel().getColumn(7).setCellRenderer(attcellRenderer8_);
+		finAtt.getColumnModel().getColumn(8).setCellRenderer(attcellRenderer9_);
+		
+		finAtt_.setViewportView(finAtt);
+		tabbedPane_1.setBackgroundAt(4, new Color(255, 255, 0));
+		
+		midtermQuiz_ = new JScrollPane();
+		tabbedPane_1.addTab("Mid-Quiz", null, midtermQuiz_, null);
+		
+		midtermQuiz = new JTable();
+		midtermQuiz.getTableHeader().setReorderingAllowed(false);
+		midtermQuiz.setModel(new DefaultTableModel(
+				
+			new Object[][] {
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"Name", "Quiz 1", "Q1GrA", "Quiz 2", "Q2GrA", "Quiz 3", "Q3GrA", "Quiz 4", "Q4GrA", "Total"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				true, true, false, true, false, true, false, true, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+			
+			@Override
+			public void setValueAt(Object value, int row, int col) {
+				super.setValueAt(value, row, col);
+				if (col == 1 && row > 0) { // Check if it's the quiz column and not the first row
+			        try {
+			            // Fetch the total score inputted by the user from the first row
+
+			            // Fetch the student's obtained score from the current row
+			            double studentScore = Double.parseDouble(value.toString());
+
+			            // Calculate Q1GrA based on the obtained score and total score
+			            double q1Gra = ((studentScore));
+			            midupdateQ1GrA_(row);
+			            updatemidQuiz(row);
+			            // Update the Q1GrA column for the current row
+			            super.setValueAt(formatToTwoDecimal(q1Gra), row, 1); 
+			        } catch (NumberFormatException e) {
+			            // Handle parsing errors if necessary
+			        }
+			    }
+					
+					 else if (col == 3 && row > 0) { // Q2 column
+						 try {
+					            // Fetch the total score inputted by the user from the first row
+
+					            // Fetch the student's obtained score from the current row
+					            double studentScore = Double.parseDouble(value.toString());
+
+					            // Calculate Q1GrA based on the obtained score and total score
+					            double q2Gra = ((studentScore));
+					            midupdateQ2GrA_(row);
+					            updatemidQuiz(row);
+					            // Update the Q1GrA column for the current row
+					            super.setValueAt(formatToTwoDecimal(q2Gra), row, 3); 
+					        } catch (NumberFormatException e) {
+					            // Handle parsing errors if necessary
+					        }
+				}
+					 else if (col == 5 && row > 0) { // Q2 column
+						 try {
+					            // Fetch the total score inputted by the user from the first row
+
+					            // Fetch the student's obtained score from the current row
+					            double studentScore = Double.parseDouble(value.toString());
+
+					            // Calculate Q1GrA based on the obtained score and total score
+					            double q3Gra = ((studentScore));
+					            midupdateQ3GrA_(row);
+					            updatemidQuiz(row);
+					            // Update the Q1GrA column for the current row
+					            super.setValueAt(formatToTwoDecimal(q3Gra), row, 5); 
+					        } catch (NumberFormatException e) {
+					            // Handle parsing errors if necessary
+					        }
+				}
+					 else if (col == 7 && row > 0) { // Q2 column
+						 try {
+					            // Fetch the total score inputted by the user from the first row
+
+					            // Fetch the student's obtained score from the current row
+					            double studentScore = Double.parseDouble(value.toString());
+
+					            // Calculate Q1GrA based on the obtained score and total score
+					            double q2Gra = ((studentScore));
+					            midupdateQ4GrA_(row);
+					            updatemidQuiz(row);
+					            // Update the Q1GrA column for the current row
+					            super.setValueAt(formatToTwoDecimal(q2Gra), row, 7); 
+					        } catch (NumberFormatException e) {
+					            // Handle parsing errors if necessary
+					        }
+				}
+					 else if (col == 9) {
+						 updatemidtermsQuizGrA(row);
+					 }
+				
+			}
+			
+			
+		});
+		midtermQuiz.getColumnModel().getColumn(0).setResizable(false);
+		midtermQuiz.getColumnModel().getColumn(1).setResizable(false);
+		midtermQuiz.getColumnModel().getColumn(2).setResizable(false);
+		midtermQuiz.getColumnModel().getColumn(3).setResizable(false);
+		midtermQuiz.getColumnModel().getColumn(4).setResizable(false);
+		midtermQuiz.getColumnModel().getColumn(5).setResizable(false);
+		midtermQuiz.getColumnModel().getColumn(6).setResizable(false);
+		midtermQuiz.getColumnModel().getColumn(7).setResizable(false);
+		midtermQuiz.getColumnModel().getColumn(8).setResizable(false);
+		midtermQuiz.getColumnModel().getColumn(9).setResizable(false);
+		CustomCellRenderer quizcellRenderer = new CustomCellRenderer(0, 0, Color.YELLOW); // Change Color.RED to whatever color you want
+		CustomCellRenderer quizcellRenderer2 = new CustomCellRenderer(0, 1, Color.GREEN);
+		CustomCellRenderer quizcellRenderer3 = new CustomCellRenderer(0, 2, Color.YELLOW);
+		CustomCellRenderer quizcellRenderer4 = new CustomCellRenderer(0, 3, Color.GREEN);
+		CustomCellRenderer quizcellRenderer5 = new CustomCellRenderer(0, 4, Color.YELLOW);
+		CustomCellRenderer quizcellRenderer6 = new CustomCellRenderer(0, 5, Color.GREEN);
+		CustomCellRenderer quizcellRenderer7 = new CustomCellRenderer(0, 6, Color.YELLOW);
+		CustomCellRenderer quizcellRenderer8 = new CustomCellRenderer(0, 7, Color.GREEN);
+		CustomCellRenderer quizcellRenderer9 = new CustomCellRenderer(0, 8, Color.YELLOW);
+		CustomCellRenderer quizcellRenderer10 = new CustomCellRenderer(0, 9, Color.YELLOW);
+		midtermQuiz.getColumnModel().getColumn(0).setCellRenderer(quizcellRenderer);
+		midtermQuiz.getColumnModel().getColumn(1).setCellRenderer(quizcellRenderer2);
+		midtermQuiz.getColumnModel().getColumn(2).setCellRenderer(quizcellRenderer3);
+		midtermQuiz.getColumnModel().getColumn(3).setCellRenderer(quizcellRenderer4);
+		midtermQuiz.getColumnModel().getColumn(4).setCellRenderer(quizcellRenderer5);
+		midtermQuiz.getColumnModel().getColumn(5).setCellRenderer(quizcellRenderer6);
+		midtermQuiz.getColumnModel().getColumn(6).setCellRenderer(quizcellRenderer7);
+		midtermQuiz.getColumnModel().getColumn(7).setCellRenderer(quizcellRenderer8);
+		midtermQuiz.getColumnModel().getColumn(8).setCellRenderer(quizcellRenderer9);
+		midtermQuiz.getColumnModel().getColumn(9).setCellRenderer(quizcellRenderer10);
+		midtermQuiz_.setViewportView(midtermQuiz);
+		
+		finalsQuiz_ = new JScrollPane();
+		tabbedPane_1.addTab("Fin - Quiz", null, finalsQuiz_, null);
+		
+		finalsQuiz = new JTable();
+		finalsQuiz.getTableHeader().setReorderingAllowed(false);
+		finalsQuiz.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"Name", "Quiz 1", "Q1GrA", "Quiz 2", "Q2GrA", "Quiz 3", "Q3GrA", "Quiz 4", "Q4GrA", "Total"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				true, true, false, true, false, true, false, true, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+			
+			@Override
+			public void setValueAt(Object value, int row, int col) {
+				super.setValueAt(value, row, col);
+				if (col == 1 && row > 0) { // Check if it's the quiz column and not the first row
+			        try {
+			            // Fetch the total score inputted by the user from the first row
+
+			            // Fetch the student's obtained score from the current row
+			            double studentScore = Double.parseDouble(value.toString());
+
+			            // Calculate Q1GrA based on the obtained score and total score
+			            double q1Gra = ((studentScore));
+			            finupdateQ1GrA_(row);
+			            updatefinQuiz(row);
+			            // Update the Q1GrA column for the current row
+			            super.setValueAt(formatToTwoDecimal(q1Gra), row, 1); 
+			        } catch (NumberFormatException e) {
+			            // Handle parsing errors if necessary
+			        }
+			    }
+					
+					 else if (col == 3 && row > 0) { // Q2 column
+						 try {
+					            // Fetch the total score inputted by the user from the first row
+
+					            // Fetch the student's obtained score from the current row
+					            double studentScore = Double.parseDouble(value.toString());
+
+					            // Calculate Q1GrA based on the obtained score and total score
+					            double q2Gra = ((studentScore));
+					            finupdateQ2GrA_(row);
+					            updatefinQuiz(row);
+					            // Update the Q1GrA column for the current row
+					            super.setValueAt(formatToTwoDecimal(q2Gra), row, 3); 
+					        } catch (NumberFormatException e) {
+					            // Handle parsing errors if necessary
+					        }
+				}
+					 else if (col == 5 && row > 0) { // Q2 column
+						 try {
+					            // Fetch the total score inputted by the user from the first row
+
+					            // Fetch the student's obtained score from the current row
+					            double studentScore = Double.parseDouble(value.toString());
+
+					            // Calculate Q1GrA based on the obtained score and total score
+					            double q3Gra = ((studentScore));
+					            finupdateQ3GrA_(row);
+					            updatefinQuiz(row);
+					            // Update the Q1GrA column for the current row
+					            super.setValueAt(formatToTwoDecimal(q3Gra), row, 5); 
+					        } catch (NumberFormatException e) {
+					            // Handle parsing errors if necessary
+					        }
+				}
+					 else if (col == 7 && row > 0) { // Q2 column
+						 try {
+					            // Fetch the total score inputted by the user from the first row
+
+					            // Fetch the student's obtained score from the current row
+					            double studentScore = Double.parseDouble(value.toString());
+
+					            // Calculate Q1GrA based on the obtained score and total score
+					            double q2Gra = ((studentScore));
+					            finupdateQ4GrA_(row);
+					            updatefinQuiz(row);
+					            // Update the Q1GrA column for the current row
+					            super.setValueAt(formatToTwoDecimal(q2Gra), row, 7); 
+					        } catch (NumberFormatException e) {
+					            // Handle parsing errors if necessary
+					        }
+				}
+					 else if (col == 9) {
+						 updatefinalsQuizGrA(row);
+					 }
+			}
+			
+		});
+		finalsQuiz.getColumnModel().getColumn(0).setResizable(false);
+		finalsQuiz.getColumnModel().getColumn(1).setResizable(false);
+		finalsQuiz.getColumnModel().getColumn(2).setResizable(false);
+		finalsQuiz.getColumnModel().getColumn(3).setResizable(false);
+		finalsQuiz.getColumnModel().getColumn(4).setResizable(false);
+		finalsQuiz.getColumnModel().getColumn(5).setResizable(false);
+		finalsQuiz.getColumnModel().getColumn(6).setResizable(false);
+		finalsQuiz.getColumnModel().getColumn(7).setResizable(false);
+		finalsQuiz.getColumnModel().getColumn(8).setResizable(false);
+		finalsQuiz.getColumnModel().getColumn(9).setResizable(false);
+		CustomCellRenderer quizcellRenderer_ = new CustomCellRenderer(0, 0, Color.YELLOW); // Change Color.RED to whatever color you want
+		CustomCellRenderer quizcellRenderer2_ = new CustomCellRenderer(0, 1, Color.GREEN);
+		CustomCellRenderer quizcellRenderer3_ = new CustomCellRenderer(0, 2, Color.YELLOW);
+		CustomCellRenderer quizcellRenderer4_ = new CustomCellRenderer(0, 3, Color.GREEN);
+		CustomCellRenderer quizcellRenderer5_ = new CustomCellRenderer(0, 4, Color.YELLOW);
+		CustomCellRenderer quizcellRenderer6_ = new CustomCellRenderer(0, 5, Color.GREEN);
+		CustomCellRenderer quizcellRenderer7_ = new CustomCellRenderer(0, 6, Color.YELLOW);
+		CustomCellRenderer quizcellRenderer8_ = new CustomCellRenderer(0, 7, Color.GREEN);
+		CustomCellRenderer quizcellRenderer9_ = new CustomCellRenderer(0, 8, Color.YELLOW);
+		CustomCellRenderer quizcellRenderer10_ = new CustomCellRenderer(0, 9, Color.YELLOW);
+		finalsQuiz.getColumnModel().getColumn(0).setCellRenderer(quizcellRenderer_);
+		finalsQuiz.getColumnModel().getColumn(1).setCellRenderer(quizcellRenderer2_);
+		finalsQuiz.getColumnModel().getColumn(2).setCellRenderer(quizcellRenderer3_);
+		finalsQuiz.getColumnModel().getColumn(3).setCellRenderer(quizcellRenderer4_);
+		finalsQuiz.getColumnModel().getColumn(4).setCellRenderer(quizcellRenderer5_);
+		finalsQuiz.getColumnModel().getColumn(5).setCellRenderer(quizcellRenderer6_);
+		finalsQuiz.getColumnModel().getColumn(6).setCellRenderer(quizcellRenderer7_);
+		finalsQuiz.getColumnModel().getColumn(7).setCellRenderer(quizcellRenderer8_);
+		finalsQuiz.getColumnModel().getColumn(8).setCellRenderer(quizcellRenderer9_);
+		finalsQuiz.getColumnModel().getColumn(9).setCellRenderer(quizcellRenderer10_);
+		midtermQuiz_.setViewportView(midtermQuiz);
+		
+		finalsQuiz_.setViewportView(finalsQuiz);
+		
+		midAct_ = new JScrollPane();
+		tabbedPane_1.addTab("Midterm Act", null, midAct_, null);
+		
+		midAct = new JTable();
+		midAct.getTableHeader().setReorderingAllowed(false);
+		midAct.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+			},
+			new String[] {
+				"Name", "Act 1", "Total", "Act 2", "Total", "Final Grade"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				true, true, false, true, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+			
+			@Override
+			public void setValueAt(Object value, int row, int col) {
+				super.setValueAt(value, row, col);
+				if (col == 1 && row > 0) { // Check if it's the quiz column and not the first row
+			        try {
+			            updatemidAct1(row);
+			        } catch (NumberFormatException e) {
+			            // Handle parsing errors if necessary
+			        }
+			    }
+					
+				else if (col == 3 && row > 0) { // Check if it's the quiz column and not the first row
+			        try {
+			            updatemidAct2(row);
+			        } catch (NumberFormatException e) {
+			            // Handle parsing errors if necessary
+			        }
+			    }
+				
+				
+				else if (col == 2 || col == 4){
+					updatemidActTotal(row);
+				}
+			}
+		});
+		midAct.getColumnModel().getColumn(0).setResizable(false);
+		midAct.getColumnModel().getColumn(1).setResizable(false);
+		midAct.getColumnModel().getColumn(2).setResizable(false);
+		midAct.getColumnModel().getColumn(3).setResizable(false);
+		midAct.getColumnModel().getColumn(4).setResizable(false);
+		midAct.getColumnModel().getColumn(5).setResizable(false);
+		CustomCellRenderer actcellRenderer_ = new CustomCellRenderer(0, 0, Color.YELLOW); // Change Color.RED to whatever color you want
+		CustomCellRenderer actcellRenderer2_ = new CustomCellRenderer(0, 1, Color.GREEN);
+		CustomCellRenderer actcellRenderer3_ = new CustomCellRenderer(0, 2, Color.YELLOW);
+		CustomCellRenderer actcellRenderer4_ = new CustomCellRenderer(0, 3, Color.GREEN);
+		CustomCellRenderer actcellRenderer5_ = new CustomCellRenderer(0, 4, Color.YELLOW);
+		CustomCellRenderer actcellRenderer6_ = new CustomCellRenderer(0, 5, Color.YELLOW);
+		midAct.getColumnModel().getColumn(0).setCellRenderer(actcellRenderer_);
+		midAct.getColumnModel().getColumn(1).setCellRenderer(actcellRenderer2_);
+		midAct.getColumnModel().getColumn(2).setCellRenderer(actcellRenderer3_);
+		midAct.getColumnModel().getColumn(3).setCellRenderer(actcellRenderer4_);
+		midAct.getColumnModel().getColumn(4).setCellRenderer(actcellRenderer5_);
+		midAct.getColumnModel().getColumn(5).setCellRenderer(actcellRenderer6_);
+		midAct_.setViewportView(midAct);
+		
+		finAct_ = new JScrollPane();
+		tabbedPane_1.addTab("Finals Act", null, finAct_, null);
+		
+		finAct = new JTable();
+		finAct.getTableHeader().setReorderingAllowed(false);
+		finAct.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+			},
+			new String[] {
+				"Name", "Act 1", "Total", "Act 2", "Total", "Final Grade"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				true, true, false, true, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+			
+			@Override
+			public void setValueAt(Object value, int row, int col) {
+				super.setValueAt(value, row, col);
+				if (col == 1 && row > 0) { // Check if it's the quiz column and not the first row
+			        try {
+			            updatefinAct1(row);
+			        } catch (NumberFormatException e) {
+			            // Handle parsing errors if necessary
+			        }
+			    }
+					
+				else if (col == 3 && row > 0) { // Check if it's the quiz column and not the first row
+			        try {
+			            updatefinAct2(row);
+			        } catch (NumberFormatException e) {
+			            // Handle parsing errors if necessary
+			        }
+			    }
+				
+				
+				else if (col == 2 || col == 4){
+					updatefinActTotal(row);
+				}
+			}
+			
+		});
+		
+		
+		finAct.getColumnModel().getColumn(0).setResizable(false);
+		finAct.getColumnModel().getColumn(1).setResizable(false);
+		finAct.getColumnModel().getColumn(2).setResizable(false);
+		finAct.getColumnModel().getColumn(3).setResizable(false);
+		finAct.getColumnModel().getColumn(4).setResizable(false);
+		finAct.getColumnModel().getColumn(5).setResizable(false);
+		CustomCellRenderer actcellRenderer = new CustomCellRenderer(0, 0, Color.YELLOW); // Change Color.RED to whatever color you want
+		CustomCellRenderer actcellRenderer2 = new CustomCellRenderer(0, 1, Color.GREEN);
+		CustomCellRenderer actcellRenderer3 = new CustomCellRenderer(0, 2, Color.YELLOW);
+		CustomCellRenderer actcellRenderer4 = new CustomCellRenderer(0, 3, Color.GREEN);
+		CustomCellRenderer actcellRenderer5 = new CustomCellRenderer(0, 4, Color.YELLOW);
+		CustomCellRenderer actcellRenderer6 = new CustomCellRenderer(0, 5, Color.YELLOW);
+		finAct.getColumnModel().getColumn(0).setCellRenderer(actcellRenderer);
+		finAct.getColumnModel().getColumn(1).setCellRenderer(actcellRenderer2);
+		finAct.getColumnModel().getColumn(2).setCellRenderer(actcellRenderer3);
+		finAct.getColumnModel().getColumn(3).setCellRenderer(actcellRenderer4);
+		finAct.getColumnModel().getColumn(4).setCellRenderer(actcellRenderer5);
+		finAct.getColumnModel().getColumn(5).setCellRenderer(actcellRenderer6);
+		
+		finAct_.setViewportView(finAct);
+	}
+
+
+    
+		
+	
+	
+	private String formatToTwoDecimal(double value) {
+	    return String.format("%.2f", value);
+	}
+	
+	public void updatemidcpGrA(int row) {
+			try {
+				// Fetch the values
+				
+				Object cpscoreObj = midterm.getValueAt(row, 4);
+				double cpscore = Double.parseDouble(cpscoreObj.toString());
+				Object cptotalObj = midterm.getValueAt(0, 4); 
+				double cptotal = Double.parseDouble(cptotalObj.toString());
+				
+				if (cpscore < 0 || cpscore > cptotal) {
+					midterm.setValueAt("Invalid", row, 5);
+				}
+				
+				else {
+					// Calculate the total
+					double cp_ = ((((cpscore) / cptotal) * 50) + 50) *.10;
+					
+					// Update the "Exam" column for the specified row
+					midterm.setValueAt(formatToTwoDecimal(cp_), row, 5);
+			}}
+			catch (NumberFormatException e) {
+				// If parsing fails, set the "Total" column to "Invalid" for the specified row
+				midterm.setValueAt("Invalid", row, 5);}
+			}
+	
+	public void updatefincpGrA(int row) {
+		try {
+			// Fetch the values
+			
+			Object cpscoreObj = finals.getValueAt(row, 4);
+			double cpscore = Double.parseDouble(cpscoreObj.toString());
+			Object cptotalObj = finals.getValueAt(0, 4); 
+			double cptotal = Double.parseDouble(cptotalObj.toString());
+			
+			if (cpscore < 0 || cpscore > cptotal) {
+				finals.setValueAt("Invalid", row, 5);
+			}
+			
+			else {
+				// Calculate the total
+				double cp_ = ((((cpscore) / cptotal) * 50) + 50) *.10;
+				
+				// Update the "Exam" column for the specified row
+				finals.setValueAt(formatToTwoDecimal(cp_), row, 5);
+		}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			finals.setValueAt("Invalid", row, 5);}
+		}
+	
+	private void midupdateQ1GrA_(int row) {
+		try {
+			// Fetch the values
+			
+			Object quiz1scoreObj = midtermQuiz.getValueAt(row, 1);
+			Object quiz1totalObj = midtermQuiz.getValueAt(0, 1); 
+			
+			if (quiz1scoreObj != null && !quiz1scoreObj.equals("Invalid") && quiz1totalObj != null && !quiz1totalObj.equals("Invalid")) {
+			double quiz1total = Double.parseDouble(quiz1totalObj.toString());
+			double quiz1score = Double.parseDouble(quiz1scoreObj.toString());
+				
+				if (quiz1score < 0 || quiz1score > quiz1total) {
+				midtermQuiz.setValueAt("Invalid", row, 2);
+				}
+			
+				else {
+				// Calculate the total
+					double quiz1 = ((((quiz1score) / quiz1total) * 40) + 60);
+				
+				// Update the "Exam" column for the specified row
+					midtermQuiz.setValueAt(formatToTwoDecimal(quiz1), row, 2);
+			}
+		}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			midtermQuiz.setValueAt("Invalid", row, 2);}
+		}
+	
+	private void midupdateQ2GrA_(int row) {
+		try {
+			// Fetch the values
+			
+			Object quiz2scoreObj = midtermQuiz.getValueAt(row, 3);
+			double quiz2score = Double.parseDouble(quiz2scoreObj.toString());
+			Object quiz2totalObj = midtermQuiz.getValueAt(0, 3); 
+			double quiz2total = Double.parseDouble(quiz2totalObj.toString());
+			
+			if (quiz2score < 0 || quiz2score > quiz2total) {
+				midtermQuiz.setValueAt("Invalid", row, 4);
+			}
+			
+			else {
+				// Calculate the total
+				double quiz2 = ((((quiz2score) / quiz2total) * 40) + 60);
+				
+				// Update the "Exam" column for the specified row
+				midtermQuiz.setValueAt(formatToTwoDecimal(quiz2), row, 4);
+		}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			midtermQuiz.setValueAt("Invalid", row, 4);}
+		}
+	
+	private void midupdateQ3GrA_(int row) {
+		try {
+			// Fetch the values
+			
+			Object quiz3scoreObj = midtermQuiz.getValueAt(row, 5);
+			double quiz3score = Double.parseDouble(quiz3scoreObj.toString());
+			Object quiz3totalObj = midtermQuiz.getValueAt(0, 5); 
+			double quiz3total = Double.parseDouble(quiz3totalObj.toString());
+			
+			if (quiz3score < 0 || quiz3score > quiz3total) {
+				midtermQuiz.setValueAt("Invalid", row, 6);
+			}
+			
+			else {
+				// Calculate the total
+				double quiz3 = ((((quiz3score) / quiz3total) * 50) + 50);
+				
+				// Update the "Exam" column for the specified row
+				midtermQuiz.setValueAt(formatToTwoDecimal(quiz3), row, 6);
+		}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			midtermQuiz.setValueAt("Invalid", row, 6);}
+		}
+	
+	private void midupdateQ4GrA_(int row) {
+		try {
+			// Fetch the values
+			
+			Object quiz4scoreObj = midtermQuiz.getValueAt(row, 7);
+			double quiz4score = Double.parseDouble(quiz4scoreObj.toString());
+			Object quiz4totalObj = midtermQuiz.getValueAt(0, 7); 
+			double quiz4total = Double.parseDouble(quiz4totalObj.toString());
+			
+			if (quiz4score < 0 || quiz4score > quiz4total) {
+				midtermQuiz.setValueAt("Invalid", row, 8);
+			}
+			
+			else {
+				// Calculate the total
+				double quiz4 = ((((quiz4score) / quiz4total) * 40) + 60);
+				
+				// Update the "Exam" column for the specified row
+				midtermQuiz.setValueAt(formatToTwoDecimal(quiz4), row, 8);
+		}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			midtermQuiz.setValueAt("Invalid", row, 8);}
+		}
+	
+	private void updatemidQuiz(int row) {
+		try {
+			// Fetch the values from the "Q1GrA" and "Q2GrA" columns for the specified row
+			Object q1totalObj = midtermQuiz.getValueAt(0, 1); 
+			Object q2totalObj = midtermQuiz.getValueAt(0, 3);
+			Object q3totalObj = midtermQuiz.getValueAt(0, 5); 
+			Object q4totalObj = midtermQuiz.getValueAt(0, 7);
+			Object q1grAObj = midtermQuiz.getValueAt(row, 1); 
+			Object q2grAObj = midtermQuiz.getValueAt(row, 3);
+			Object q3grAObj = midtermQuiz.getValueAt(row, 5); 
+			Object q4grAObj = midtermQuiz.getValueAt(row, 7);
+			
+			// Check if both values are non-null and not "Invalid"
+			if (q1grAObj != null && q2grAObj != null && !q1grAObj.equals("Invalid") && !q2grAObj.equals("Invalid")
+				&& q3grAObj != null && q4grAObj != null && !q3grAObj.equals("Invalid") && !q4grAObj.equals("Invalid")
+				&& q1totalObj != null && q2totalObj != null && !q1totalObj.equals("Invalid") && !q2totalObj.equals("Invalid")
+				&& q3totalObj != null && q4totalObj != null && !q3totalObj.equals("Invalid") && !q4totalObj.equals("Invalid")) {
+				// Parse the values as doubles
+				double q1Gra = Double.parseDouble(q1grAObj.toString());
+				double q2Gra = Double.parseDouble(q2grAObj.toString());
+				double q3Gra = Double.parseDouble(q3grAObj.toString());
+				double q4Gra = Double.parseDouble(q4grAObj.toString());
+				double q1total = Double.parseDouble(q1totalObj.toString());
+				double q2total = Double.parseDouble(q2totalObj.toString());
+				double q3total = Double.parseDouble(q3totalObj.toString());
+				double q4total = Double.parseDouble(q4totalObj.toString());
+				
+				// Calculate the total (for example, as the average of the two grades)
+				double Quiz_ = ((((q1Gra + q2Gra + q3Gra + q4Gra) / (q1total + q2total + q3total + q4total)) * 40) + 60);
+				
+				// Update the "Total" column for the specified row
+				midtermQuiz.setValueAt(formatToTwoDecimal(Quiz_), row, 9);
+			}
+		} catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			midtermQuiz.setValueAt("Invalid", row, 9);
+		}
+	}
+
+	private void finupdateQ1GrA_(int row) {
+		try {
+			// Fetch the values
+			
+			Object quiz1scoreObj = finalsQuiz.getValueAt(row, 1);
+			double quiz1score = Double.parseDouble(quiz1scoreObj.toString());
+			Object quiz1totalObj = finalsQuiz.getValueAt(0, 1); 
+			double quiz1total = Double.parseDouble(quiz1totalObj.toString());
+			
+			if (quiz1score < 0 || quiz1score > quiz1total) {
+				finalsQuiz.setValueAt("Invalid", row, 2);
+			}
+			
+			else {
+				// Calculate the total
+				double quiz1 = ((((quiz1score) / quiz1total) * 40) + 60);
+				
+				// Update the "Exam" column for the specified row
+				finalsQuiz.setValueAt(formatToTwoDecimal(quiz1), row, 2);
+		}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			finalsQuiz.setValueAt("Invalid", row, 2);}
+		}
+	
+	private void finupdateQ2GrA_(int row) {
+		try {
+			// Fetch the values
+			
+			Object quiz2scoreObj = finalsQuiz.getValueAt(row, 3);
+			double quiz2score = Double.parseDouble(quiz2scoreObj.toString());
+			Object quiz2totalObj = finalsQuiz.getValueAt(0, 3); 
+			double quiz2total = Double.parseDouble(quiz2totalObj.toString());
+			
+			if (quiz2score < 0 || quiz2score > quiz2total) {
+				finalsQuiz.setValueAt("Invalid", row, 4);
+			}
+			
+			else {
+				// Calculate the total
+				double quiz2 = ((((quiz2score) / quiz2total) * 40) + 60);
+				
+				// Update the "Exam" column for the specified row
+				finalsQuiz.setValueAt(formatToTwoDecimal(quiz2), row, 4);
+		}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			finalsQuiz.setValueAt("Invalid", row, 4);}
+		}
+	
+	private void finupdateQ3GrA_(int row) {
+		try {
+			// Fetch the values
+			
+			Object quiz3scoreObj = finalsQuiz.getValueAt(row, 5);
+			double quiz3score = Double.parseDouble(quiz3scoreObj.toString());
+			Object quiz3totalObj = finalsQuiz.getValueAt(0, 5); 
+			double quiz3total = Double.parseDouble(quiz3totalObj.toString());
+			
+			if (quiz3score < 0 || quiz3score > quiz3total) {
+				finalsQuiz.setValueAt("Invalid", row, 6);
+			}
+			
+			else {
+				// Calculate the total
+				double quiz3 = ((((quiz3score) / quiz3total) * 40) + 60);
+				
+				// Update the "Exam" column for the specified row
+				finalsQuiz.setValueAt(formatToTwoDecimal(quiz3), row, 6);
+		}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			finalsQuiz.setValueAt("Invalid", row, 6);}
+		}
+	
+	private void finupdateQ4GrA_(int row) {
+		try {
+			// Fetch the values
+			
+			Object quiz4scoreObj = finalsQuiz.getValueAt(row, 7);
+			double quiz4score = Double.parseDouble(quiz4scoreObj.toString());
+			Object quiz4totalObj = finalsQuiz.getValueAt(0, 7); 
+			double quiz4total = Double.parseDouble(quiz4totalObj.toString());
+			
+			if (quiz4score < 0 || quiz4score > quiz4total) {
+				finalsQuiz.setValueAt("Invalid", row, 8);
+			}
+			
+			else {
+				// Calculate the total
+				double quiz4 = ((((quiz4score) / quiz4total) * 40) + 60);
+				
+				// Update the "Exam" column for the specified row
+				finalsQuiz.setValueAt(formatToTwoDecimal(quiz4), row, 8);
+		}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			finalsQuiz.setValueAt("Invalid", row, 8);}
+		}
+	
+	private void updatefinQuiz(int row) {
+		try {
+			// Fetch the values from the "Q1GrA" and "Q2GrA" columns for the specified row
+			Object q1totalObj = finalsQuiz.getValueAt(0, 1); 
+			Object q2totalObj = finalsQuiz.getValueAt(0, 3);
+			Object q3totalObj = finalsQuiz.getValueAt(0, 5); 
+			Object q4totalObj = finalsQuiz.getValueAt(0, 7);
+			Object q1grAObj = finalsQuiz.getValueAt(row, 1); 
+			Object q2grAObj = finalsQuiz.getValueAt(row, 3);
+			Object q3grAObj = finalsQuiz.getValueAt(row, 5); 
+			Object q4grAObj = finalsQuiz.getValueAt(row, 7);
+			
+			// Check if both values are non-null and not "Invalid"
+			if (q1grAObj != null && q2grAObj != null && !q1grAObj.equals("Invalid") && !q2grAObj.equals("Invalid")
+				&& q3grAObj != null && q4grAObj != null && !q3grAObj.equals("Invalid") && !q4grAObj.equals("Invalid")
+				&& q1totalObj != null && q2totalObj != null && !q1totalObj.equals("Invalid") && !q2totalObj.equals("Invalid")
+				&& q3totalObj != null && q4totalObj != null && !q3totalObj.equals("Invalid") && !q4totalObj.equals("Invalid")) {
+				// Parse the values as doubles
+				double q1Gra = Double.parseDouble(q1grAObj.toString());
+				double q2Gra = Double.parseDouble(q2grAObj.toString());
+				double q3Gra = Double.parseDouble(q3grAObj.toString());
+				double q4Gra = Double.parseDouble(q4grAObj.toString());
+				double q1total = Double.parseDouble(q1totalObj.toString());
+				double q2total = Double.parseDouble(q2totalObj.toString());
+				double q3total = Double.parseDouble(q3totalObj.toString());
+				double q4total = Double.parseDouble(q4totalObj.toString());
+				
+				// Calculate the total (for example, as the average of the two grades)
+				double Quiz_ = ((((q1Gra + q2Gra + q3Gra + q4Gra) / (q1total + q2total + q3total + q4total)) * 40) + 60);
+				
+				// Update the "Total" column for the specified row
+				finalsQuiz.setValueAt(formatToTwoDecimal(Quiz_), row, 9);
+			}
+		} catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			finalsQuiz.setValueAt("Invalid", row, 9);
+		}
+	}
+	
+	public void updatemidtermsQuizGrA (int row) {
+		Object q1totalObj = midtermQuiz.getValueAt(0, 1); 
+		Object q2totalObj = midtermQuiz.getValueAt(0, 3);
+		Object q3totalObj = midtermQuiz.getValueAt(0, 5); 
+		Object q4totalObj = midtermQuiz.getValueAt(0, 7);
+		Object q1grAObj = midtermQuiz.getValueAt(row, 1); 
+		Object q2grAObj = midtermQuiz.getValueAt(row, 3);
+		Object q3grAObj = midtermQuiz.getValueAt(row, 5); 
+		Object q4grAObj = midtermQuiz.getValueAt(row, 7);
+		
+		// Check if both values are non-null and not "Invalid"
+		if (q1grAObj != null && q2grAObj != null && !q1grAObj.equals("Invalid") && !q2grAObj.equals("Invalid")
+			&& q3grAObj != null && q4grAObj != null && !q3grAObj.equals("Invalid") && !q4grAObj.equals("Invalid")
+			&& q1totalObj != null && q2totalObj != null && !q1totalObj.equals("Invalid") && !q2totalObj.equals("Invalid")
+			&& q3totalObj != null && q4totalObj != null && !q3totalObj.equals("Invalid") && !q4totalObj.equals("Invalid")) {
+			// Parse the values as doubles
+			double q1Gra = Double.parseDouble(q1grAObj.toString());
+			double q2Gra = Double.parseDouble(q2grAObj.toString());
+			double q3Gra = Double.parseDouble(q3grAObj.toString());
+			double q4Gra = Double.parseDouble(q4grAObj.toString());
+			double q1total = Double.parseDouble(q1totalObj.toString());
+			double q2total = Double.parseDouble(q2totalObj.toString());
+			double q3total = Double.parseDouble(q3totalObj.toString());
+			double q4total = Double.parseDouble(q4totalObj.toString());
+		double Quiz = ((((q1Gra + q2Gra + q3Gra + q4Gra) / (q1total + q2total + q3total + q4total)) * 50) + 50) *.20;
+			midterm.setValueAt(formatToTwoDecimal(Quiz), row, 3);
+	}
+	}
+	
+	public void updatefinalsQuizGrA (int row) {
+		Object q1totalObj = finalsQuiz.getValueAt(0, 1); 
+		Object q2totalObj = finalsQuiz.getValueAt(0, 3);
+		Object q3totalObj = finalsQuiz.getValueAt(0, 5); 
+		Object q4totalObj = finalsQuiz.getValueAt(0, 7);
+		Object q1grAObj = finalsQuiz.getValueAt(row, 1); 
+		Object q2grAObj = finalsQuiz.getValueAt(row, 3);
+		Object q3grAObj = finalsQuiz.getValueAt(row, 5); 
+		Object q4grAObj = finalsQuiz.getValueAt(row, 7);
+		
+		// Check if both values are non-null and not "Invalid"
+		if (q1grAObj != null && q2grAObj != null && !q1grAObj.equals("Invalid") && !q2grAObj.equals("Invalid")
+			&& q3grAObj != null && q4grAObj != null && !q3grAObj.equals("Invalid") && !q4grAObj.equals("Invalid")
+			&& q1totalObj != null && q2totalObj != null && !q1totalObj.equals("Invalid") && !q2totalObj.equals("Invalid")
+			&& q3totalObj != null && q4totalObj != null && !q3totalObj.equals("Invalid") && !q4totalObj.equals("Invalid")) {
+			// Parse the values as doubles
+			double q1Gra = Double.parseDouble(q1grAObj.toString());
+			double q2Gra = Double.parseDouble(q2grAObj.toString());
+			double q3Gra = Double.parseDouble(q3grAObj.toString());
+			double q4Gra = Double.parseDouble(q4grAObj.toString());
+			double q1total = Double.parseDouble(q1totalObj.toString());
+			double q2total = Double.parseDouble(q2totalObj.toString());
+			double q3total = Double.parseDouble(q3totalObj.toString());
+			double q4total = Double.parseDouble(q4totalObj.toString());
+		double Quiz = ((((q1Gra + q2Gra + q3Gra + q4Gra) / (q1total + q2total + q3total + q4total)) * 50) + 50) *.20;
+			finals.setValueAt(formatToTwoDecimal(Quiz), row, 3);
+	}
+	}
+	
+	public void updatefinAct1(int row) {
+        try {
+            Object Act1Obj = finAct.getValueAt(row, 1);
+            Object Act1total = finAct.getValueAt(0, 1);
+            if (Act1Obj != null && Act1total != null && !Act1Obj.equals("Invalid") && !Act1total.equals("Invalid")) {
+                double Act1_ = Double.parseDouble(Act1Obj.toString());
+                double Act1total_ = Double.parseDouble(Act1total.toString());
+                
+                if (Act1_ < 0 || Act1_ > Act1total_ ) {
+    				finAct.setValueAt("Invalid", row, 2);
+    			}
+                
+                else {
+                double Act_1 = ((Act1_ / Act1total_) * 50) + 50;
+                finAct.setValueAt(formatToTwoDecimal(Act_1), row, 2);
+            }
+            }
+        } catch (NumberFormatException e) {
+            finAct.setValueAt("Invalid", row, 2);
+        }
+    }
+
+    public void updatefinAct2(int row) {
+        try {
+            Object Act2Obj = finAct.getValueAt(row, 3);
+            Object Act2total = finAct.getValueAt(0, 3);
+            if (Act2Obj != null && Act2total != null && !Act2Obj.equals("Invalid") && !Act2total.equals("Invalid")) {
+                double Act2_ = Double.parseDouble(Act2Obj.toString());
+                double Act2total_ = Double.parseDouble(Act2total.toString());
+                
+                if (Act2_ < 0 || Act2_ > Act2total_ ) {
+    				finAct.setValueAt("Invalid", row, 4);
+    			}
+                
+                else {
+                double Act_2 = ((Act2_ / Act2total_) * 50) + 50;
+                finAct.setValueAt(formatToTwoDecimal(Act_2), row, 4);
+            }
+            }
+        } catch (NumberFormatException e) {
+            finAct.setValueAt("Invalid", row, 4);
+        }
+    }
+
+    public void updatefinActTotal(int row) {
+        try {
+            Object Act1Obj = finAct.getValueAt(row, 1);
+            Object Act2Obj = finAct.getValueAt(row, 3);
+            Object Act1total = finAct.getValueAt(0, 1);
+            Object Act2total = finAct.getValueAt(0, 3);
+
+            if (Act1Obj != null && Act2Obj != null && Act1total != null && Act2total != null &&
+                !Act1Obj.equals("Invalid") && !Act2Obj.equals("Invalid") &&
+                !Act1total.equals("Invalid") && !Act2total.equals("Invalid")) {
+
+                double Act1_ = Double.parseDouble(Act1Obj.toString());
+                double Act2_ = Double.parseDouble(Act2Obj.toString());
+                double Act1total_ = Double.parseDouble(Act1total.toString());
+                double Act2total_ = Double.parseDouble(Act2total.toString());
+
+                double midActTotal = ((Act1_ + Act2_) / (Act1total_ + Act2total_) * 50) + 50;
+                finAct.setValueAt(formatToTwoDecimal(midActTotal), row, 5);
+                
+                double midActTotal_ = (midActTotal * .30);
+                finals.setValueAt(formatToTwoDecimal(midActTotal_), row, 6);
+            }
+        } catch (NumberFormatException e) {
+            finAct.setValueAt("Invalid", row, 5);
+        }
+    }
+    
+    public void updatemidAct1(int row) {
+        try {
+            Object Act1Obj = midAct.getValueAt(row, 1);
+            Object Act1total = midAct.getValueAt(0, 1);
+            
+            if (Act1Obj != null && Act1total != null && !Act1Obj.equals("Invalid") && !Act1total.equals("Invalid")) {
+                double Act1_ = Double.parseDouble(Act1Obj.toString());
+                double Act1total_ = Double.parseDouble(Act1total.toString());
+                
+                if (Act1_ < 0 || Act1_ > Act1total_ ) {
+    				midAct.setValueAt("Invalid", row, 2);
+    			}
+                
+                else {
+                double Act_1 = ((Act1_ / Act1total_) * 50) + 50;
+                midAct.setValueAt(formatToTwoDecimal(Act_1), row, 2);
+            }
+                }
+        } catch (NumberFormatException e) {
+            midAct.setValueAt("Invalid", row, 2);
+        }
+    }
+
+    public void updatemidAct2(int row) {
+        try {
+            Object Act2Obj = midAct.getValueAt(row, 3);
+            Object Act2total = midAct.getValueAt(0, 3);
+            if (Act2Obj != null && Act2total != null && !Act2Obj.equals("Invalid") && !Act2total.equals("Invalid")) {
+                double Act2_ = Double.parseDouble(Act2Obj.toString());
+                double Act2total_ = Double.parseDouble(Act2total.toString());
+                
+                if (Act2_ < 0 || Act2_ > Act2total_ ) {
+    				midAct.setValueAt("Invalid", row, 4);
+    			}
+                
+                else {
+                double Act_2 = ((Act2_ / Act2total_) * 50) + 50;
+                midAct.setValueAt(formatToTwoDecimal(Act_2), row, 4);
+            }
+                }
+        } catch (NumberFormatException e) {
+            midAct.setValueAt("Invalid", row, 4);
+        }
+    }
+
+    public void updatemidActTotal(int row) {
+        try {
+            Object Act1Obj = midAct.getValueAt(row, 1);
+            Object Act2Obj = midAct.getValueAt(row, 3);
+            Object Act1total = midAct.getValueAt(0, 1);
+            Object Act2total = midAct.getValueAt(0, 3);
+
+            if (Act1Obj != null && Act2Obj != null && Act1total != null && Act2total != null &&
+                !Act1Obj.equals("Invalid") && !Act2Obj.equals("Invalid") &&
+                !Act1total.equals("Invalid") && !Act2total.equals("Invalid")) {
+
+                double Act1_ = Double.parseDouble(Act1Obj.toString());
+                double Act2_ = Double.parseDouble(Act2Obj.toString());
+                double Act1total_ = Double.parseDouble(Act1total.toString());
+                double Act2total_ = Double.parseDouble(Act2total.toString());
+
+                double midActTotal = ((Act1_ + Act2_) / (Act1total_ + Act2total_) * 50) + 50;
+                midAct.setValueAt(formatToTwoDecimal(midActTotal), row, 5);
+                
+                double midActTotal_ = (midActTotal * .30);
+                midterm.setValueAt(formatToTwoDecimal(midActTotal_), row, 6);
+            }
+        } catch (NumberFormatException e) {
+            midAct.setValueAt("Invalid", row, 5);
+        }
+    }
+	
+	public double calculateexamGrA(double grade) {
+		// Example calculation, modify this as needed
+		if (grade >= 0 && grade <=15) {
+			return (60 + grade);
+		}
+		if (grade >= 16 && grade <=29) {
+			return (76.67 + ((grade-16)*1.666));
+		}
+			else
+		return (100);
+	}
+
+	
+	public void updatemidMajorExam(int row) {
+		try {
+			// Fetch the values
+			
+			Object midmajorExamscoreObj = midterm.getValueAt(row, 8);
+			double midmajorExamscore = Double.parseDouble(midmajorExamscoreObj.toString());
+			
+				// Calculate the total
+				double midmajorExam_ = ((midmajorExamscore)*.30);
+				midterm.setValueAt(formatToTwoDecimal(midmajorExam_), row, 9);
+		}
+		catch (NumberFormatException e) {
+			midterm.setValueAt("Invalid", row, 9);
+		}}
+
+	private void updatefinMajorExam(int row) {
+		try {
+			// Fetch the values
+			
+			Object finalsmajorExamscoreObj = finals.getValueAt(row, 8);
+			double finalsmajorExamscore = Double.parseDouble(finalsmajorExamscoreObj.toString());
+			
+				// Calculate the total
+				double finalsmajorExam_ = ((finalsmajorExamscore)*.30);
+				finals.setValueAt(formatToTwoDecimal(finalsmajorExam_), row, 9);
+		}
+		catch (NumberFormatException e) {
+			finals.setValueAt("Invalid", row, 9);
+		}}
+	
+	public void updatemidAttGrA(int row) {
+		try {
+			// Fetch the values from the "Q1GrA" and "Q2GrA" columns for the specified row
+			Object attendancefinalObj = midAtt.getValueAt(row, 8);
+			double attendancefinalctr = Double.parseDouble(attendancefinalObj.toString());
+				
+				if (attendancefinalctr == 7) {
+					double attendanceGrA = 10;
+					midterm.setValueAt((attendanceGrA), row, 2);
+				}
+					
+					else if (attendancefinalctr == 6) {
+					double attendanceGrA = 8.57;
+					midterm.setValueAt((attendanceGrA), row, 2);
+					}
+				
+					else if (attendancefinalctr == 5) {
+						double attendanceGrA = 7.14;
+						midterm.setValueAt((attendanceGrA), row, 2);
+						}
+				
+					else if (attendancefinalctr == 4) {
+						double attendanceGrA = 5.71;
+						midterm.setValueAt((attendanceGrA), row, 2);
+						}
+				
+					else if (attendancefinalctr == 3 ) {
+						double attendanceGrA = 4.29;
+						midterm.setValueAt((attendanceGrA), row, 2);
+						}
+				
+					else if (attendancefinalctr == 2) {
+						double attendanceGrA = 2.86;
+						midterm.setValueAt((attendanceGrA), row, 2);
+						}
+					else if (attendancefinalctr == 1) {
+						double attendanceGrA = 1.43;
+						midterm.setValueAt((attendanceGrA), row, 2);
+						}
+				
+					else {
+						double attendanceGrA = 0;
+						midterm.setValueAt((attendanceGrA), row, 2);
+					}
+				
+		} catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			midterm.setValueAt("Invalid", row, 2);
+		}
+		}
+	
+	public void updatemidatt(int row) {
+		try {
+			// Fetch the values from the "Q1GrA" and "Q2GrA" columns for the specified row
+			Object attendanceObj = midAtt.getValueAt(row, 3);
+		
+				double attendancefinal = Double.parseDouble(attendanceObj.toString());
+				double attendance_final = (attendancefinal);
+				
+				// Update the "Total" column for the specified row
+				midterm.setValueAt((attendance_final), row, 2);
+		} catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			midterm.setValueAt("Invalid", row, 2);
+		}
+		}
+	
+	public void updatemidAttendance(int row) {
+		try {
+			// Fetch the values from the "Q1GrA" and "Q2GrA" columns for the specified row
+			Object day1Obj = midAtt.getValueAt(row, 1); 
+			Object day2Obj = midAtt.getValueAt(row, 2);
+			Object day3Obj = midAtt.getValueAt(row, 3);
+			Object day4Obj = midAtt.getValueAt(row, 4);
+			Object day5Obj = midAtt.getValueAt(row, 5);
+			Object day6Obj = midAtt.getValueAt(row, 6);
+			Object day7Obj = midAtt.getValueAt(row, 7);
+			
+			// Check if both values are non-null and not "Invalid"
+			if (day1Obj != null && day2Obj != null && !day1Obj.equals("Invalid") && !day2Obj.equals("Invalid") && day3Obj != null && day4Obj != null && !day3Obj.equals("Invalid") && !day4Obj.equals("Invalid") 
+					&& day5Obj != null && day6Obj != null && !day5Obj.equals("Invalid") && day7Obj != null && !day7Obj.equals("Invalid")) {
+				// Parse the values as doubles
+				double day1ctr = Double.parseDouble(day1Obj.toString());
+				double day2ctr = Double.parseDouble(day2Obj.toString());
+				double day3ctr = Double.parseDouble(day3Obj.toString());
+				double day4ctr = Double.parseDouble(day4Obj.toString());
+				double day5ctr = Double.parseDouble(day5Obj.toString());
+				double day6ctr = Double.parseDouble(day6Obj.toString());
+				double day7ctr = Double.parseDouble(day7Obj.toString());
+				
+				// Calculate the total (for example, as the average of the two grades)
+				double attendancectr = (day1ctr + day2ctr + day3ctr + day4ctr + day5ctr + day6ctr + day7ctr);
+				
+				// Update the "Total" column for the specified row
+				midAtt.setValueAt((attendancectr), row, 8);
+	            
+			}
+		} catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			midAtt.setValueAt("Invalid", row, 8);
+		}
+		}
+	
+	public void updatefinAttGrA(int row) {
+		try {
+			// Fetch the values from the "Q1GrA" and "Q2GrA" columns for the specified row
+			Object attendancefinalObj = finAtt.getValueAt(row, 8);
+			double attendancefinalctr = Double.parseDouble(attendancefinalObj.toString());
+				
+				if (attendancefinalctr == 7) {
+					double attendanceGrA = 10;
+					finals.setValueAt((attendanceGrA), row, 2);
+				}
+					
+					else if (attendancefinalctr == 6) {
+					double attendanceGrA = 8.57;
+					finals.setValueAt((attendanceGrA), row, 2);
+					}
+				
+					else if (attendancefinalctr == 5) {
+						double attendanceGrA = 7.14;
+						finals.setValueAt((attendanceGrA), row, 2);
+						}
+				
+					else if (attendancefinalctr == 4) {
+						double attendanceGrA = 5.71;
+						finals.setValueAt((attendanceGrA), row, 2);
+						}
+				
+					else if (attendancefinalctr == 3 ) {
+						double attendanceGrA = 4.29;
+						finals.setValueAt((attendanceGrA), row, 2);
+						}
+				
+					else if (attendancefinalctr == 2) {
+						double attendanceGrA = 2.86;
+						finals.setValueAt((attendanceGrA), row, 2);
+						}
+					else if (attendancefinalctr == 1) {
+						double attendanceGrA = 1.43;
+						finals.setValueAt((attendanceGrA), row, 2);
+						}
+				
+					else {
+						double attendanceGrA = 0;
+						finals.setValueAt((attendanceGrA), row, 2);
+					}
+				
+		} catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			finals.setValueAt("Invalid", row, 2);
+		}
+		}
+	
+	public void updatefinAttendance(int row) {
+		try {
+			// Fetch the values from the "Q1GrA" and "Q2GrA" columns for the specified row
+			Object day1Obj = finAtt.getValueAt(row, 1); 
+			Object day2Obj = finAtt.getValueAt(row, 2);
+			Object day3Obj = finAtt.getValueAt(row, 3);
+			Object day4Obj = finAtt.getValueAt(row, 4);
+			Object day5Obj = finAtt.getValueAt(row, 5);
+			Object day6Obj = finAtt.getValueAt(row, 6);
+			Object day7Obj = finAtt.getValueAt(row, 7);
+			
+			// Check if both values are non-null and not "Invalid"
+			if (day1Obj != null && day2Obj != null && !day1Obj.equals("Invalid") && !day2Obj.equals("Invalid") && day3Obj != null && day4Obj != null && !day3Obj.equals("Invalid") && !day4Obj.equals("Invalid") 
+					&& day5Obj != null && day6Obj != null && !day5Obj.equals("Invalid") && day7Obj != null && !day7Obj.equals("Invalid")) {
+				// Parse the values as doubles
+				double day1ctr = Double.parseDouble(day1Obj.toString());
+				double day2ctr = Double.parseDouble(day2Obj.toString());
+				double day3ctr = Double.parseDouble(day3Obj.toString());
+				double day4ctr = Double.parseDouble(day4Obj.toString());
+				double day5ctr = Double.parseDouble(day5Obj.toString());
+				double day6ctr = Double.parseDouble(day6Obj.toString());
+				double day7ctr = Double.parseDouble(day7Obj.toString());
+				
+				// Calculate the total (for example, as the average of the two grades)
+				double attendancectr = (day1ctr + day2ctr + day3ctr + day4ctr + day5ctr + day6ctr + day7ctr);
+				
+				// Update the "Total" column for the specified row
+				finAtt.setValueAt((attendancectr), row, 8);
+	            
+			}
+		} catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			finAtt.setValueAt("Invalid", row, 8);
+		}
+		}
+	
+	
+	
+	public void updatemidTotalGrade(int row) {
+		try {
+			// Fetch the values
+			Object totalgradeObj1 = midterm.getValueAt(row, 2); 
+			Object totalgradeObj2 = midterm.getValueAt(row, 3); 
+			Object totalgradeObj3 = midterm.getValueAt(row, 5);
+			Object totalgradeObj4 = midterm.getValueAt(row, 6); 
+			Object totalgradeObj5 = midterm.getValueAt(row, 9); 
+			
+				// Parse the values as doubles
+				double total_grade1 = Double.parseDouble(totalgradeObj1.toString());
+				double total_grade2 = Double.parseDouble(totalgradeObj2.toString());
+				double total_grade3 = Double.parseDouble(totalgradeObj3.toString());
+				double total_grade4 = Double.parseDouble(totalgradeObj4.toString());
+				double total_grade5 = Double.parseDouble(totalgradeObj5.toString());
+				
+				// Calculate the total
+				double totalgrade_ = (total_grade1 + total_grade2 + total_grade3 + total_grade4 + total_grade5);
+				
+				// Update the "Exam" column for the specified row
+				midterm.setValueAt(formatToTwoDecimal(totalgrade_), row, 10);
+				semestral.setValueAt(formatToTwoDecimal(totalgrade_), row, 1);
+		}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			midterm.setValueAt("Invalid", row, 10);}
+		}
+
+	public void updatefinTotalGrade(int row) {
+		try {
+			// Fetch the values
+			Object totalgradeObj1 = finals.getValueAt(row, 2); 
+			Object totalgradeObj2 = finals.getValueAt(row, 3); 
+			Object totalgradeObj3 = finals.getValueAt(row, 5);
+			Object totalgradeObj4 = finals.getValueAt(row, 6); 
+			Object totalgradeObj5 = finals.getValueAt(row, 9); 
+			
+				// Parse the values as doubles
+				double total_grade1 = Double.parseDouble(totalgradeObj1.toString());
+				double total_grade2 = Double.parseDouble(totalgradeObj2.toString());
+				double total_grade3 = Double.parseDouble(totalgradeObj3.toString());
+				double total_grade4 = Double.parseDouble(totalgradeObj4.toString());
+				double total_grade5 = Double.parseDouble(totalgradeObj5.toString());
+				
+				// Calculate the total
+				double totalgrade_ = (total_grade1 + total_grade2 + total_grade3 + total_grade4 + total_grade5);
+				
+				// Update the "Exam" column for the specified row
+				finals.setValueAt(formatToTwoDecimal(totalgrade_), row, 10);
+				semestral.setValueAt(formatToTwoDecimal(totalgrade_), row, 2);
+		}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Total" column to "Invalid" for the specified row
+			finals.setValueAt("Invalid", row, 10);}
+		}
+	
+	public void updatesemGrade(int row) {
+		try {
+			// Fetch the values
+			Object midtermgradeObj = semestral.getValueAt(row, 1); 
+			Object finalsgradeObj = semestral.getValueAt(row, 2); 
+			
+			if (midtermgradeObj != null && finalsgradeObj != null && !midtermgradeObj.equals("Invalid") && !finalsgradeObj.equals("Invalid")){
+				// Parse the values as doubles
+				double midterm_grade = Double.parseDouble(midtermgradeObj.toString());
+				double finals_grade = Double.parseDouble(finalsgradeObj.toString());
+				// Calculate the total
+				double semgrade_ = ((midterm_grade + finals_grade)/2);
+				semestral.setValueAt(formatToTwoDecimal(semgrade_), row, 3);
+		}}
+		catch (NumberFormatException e) {
+			semestral.setValueAt("Invalid", row, 3);}
+		}
+	
+	public void updatesemRemarks(int row) {
+		try {
+			// Fetch the values
+			Object pass_fail = semestral.getValueAt(row, 3);
+			double passorfail = Double.parseDouble(pass_fail.toString());
+				
+				// Check
+			if (passorfail >= 75) {
+				String Pass_Fail = "Pass";
+				
+				// Update the "Pass or Fail" column for the specified row
+				semestral.setValueAt((Pass_Fail),row, 4);
+		}
+			else if (passorfail < 75){
+				String Pass_Fail = "Fail";
+				semestral.setValueAt((Pass_Fail),row, 4);
+			}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Pass or fail " column to "Fail" for the specified row
+			semestral.setValueAt("Invalid", row, 4);}
+		}
+
+	private void updatemidPass_Fail(int row) {
+		try {
+			// Fetch the values
+			Object pass_fail = midterm.getValueAt(row, 10);
+			double passorfail = Double.parseDouble(pass_fail.toString());
+				
+				// Check
+			if (passorfail >= 75) {
+				String Pass_Fail = "Pass";
+				
+				// Update the "Pass or Fail" column for the specified row
+				midterm.setValueAt((Pass_Fail),row, 11);
+		}
+			else if (passorfail < 75){
+				String Pass_Fail = "Fail";
+				midterm.setValueAt((Pass_Fail),row, 11);
+			}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Pass or fail " column to "Fail" for the specified row
+			midterm.setValueAt("Invalid", row, 11);}
+		}
+	
+	private void updatefinPass_Fail(int row) {
+		try {
+			// Fetch the values
+			Object pass_fail = finals.getValueAt(row, 10);
+			double passorfail = Double.parseDouble(pass_fail.toString());
+				
+				// Check
+			if (passorfail >= 75) {
+				String Pass_Fail = "Pass";
+				
+				// Update the "Pass or Fail" column for the specified row
+				finals.setValueAt((Pass_Fail),row, 11);
+		}
+			else if (passorfail < 75){
+				String Pass_Fail = "Fail";
+				finals.setValueAt((Pass_Fail),row, 11);
+			}}
+		catch (NumberFormatException e) {
+			// If parsing fails, set the "Pass or fail " column to "Fail" for the specified row
+			finals.setValueAt("Invalid", row, 11);}
+		}
+}
+	
+	
+		
